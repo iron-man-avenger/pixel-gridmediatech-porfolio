@@ -20,9 +20,9 @@ export default function Footer({ onOpenEstimator }) {
           {/* Brand Column */}
           <div className="md:col-span-5 space-y-4">
             <img 
-              src="/pixelgrid-logo.svg" 
+              src="/pixelgrid-logo-white.svg" 
               alt="PixelGrid Media Tech" 
-              className="h-9 w-auto object-contain brightness-125" 
+              className="h-9 w-auto object-contain" 
             />
             <p className="text-xs sm:text-sm text-white/70 max-w-sm leading-relaxed">
               A fresh, agile experiential agency designing curved 4K LED environments, vocal acoustics, and brand pop-ups across India.
