@@ -1,253 +1,218 @@
 import React, { useState } from 'react';
-import { Monitor, Volume2, ShieldCheck, Users, Clock, Check, ArrowRight } from 'lucide-react';
+import { Monitor, Volume2, Sparkles, Check, ArrowRight, Video, Layers, Sliders } from 'lucide-react';
 
 export default function InteractiveStage({ onOpenEstimator }) {
-  const [activeMode, setActiveMode] = useState('agm');
+  const [activeTab, setActiveTab] = useState('conclave');
 
-  const modes = {
-    agm: {
-      id: 'agm',
-      tabLabel: 'Statutory AGM & Investor Meet',
-      subtitle: 'MCA/SEBI Compliant Statutory Production',
-      headline: 'Flawless Dual-Stream Telecast & Electronic Voting Desks',
-      description: 'Engineered specifically for statutory Annual General Meetings. Features confidential chairman isolation booths, zero-latency multi-location telecast, and synchronized e-voting terminals.',
+  const formats = {
+    conclave: {
+      id: 'conclave',
+      tabLabel: 'Corporate Conclave & Summits',
+      subtitle: 'Executive Conferences & AGMs',
+      headline: 'Architectural Curved LED Stage with Vocal Clarity Acoustics',
+      description: 'Engineered for executive summits, CXO roundtables, and statutory corporate AGMs. Features clean matte backdrops, speech-tuned line arrays, and seamless keynote multi-screen management.',
+      image: "https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1000&q=80",
       specs: {
-        ledWall: '60ft P2.6 Ultra-Contrast Matte (Anti-Reflective)',
-        audio: 'Acoustic Feedback Suppression + Shure Microflex Wireless Podiums',
-        broadcasting: 'Bonded Tri-Carrier Satellite / Fiber 1Gbps Uplink',
-        attendanceProtocol: 'Pre-Vetted Shareholder Biometric & RoC Registry Sync',
-        turnoutTarget: '500-1,200 Shareholders + 25,000 Webcast Viewers'
+        ledWall: 'Curved P2.6 Ultra-Contrast Matte (Anti-Glare)',
+        audio: 'L-Acoustics K2 Array + Shure Axient Digital Podium Microphones',
+        lighting: 'Soft Key White Profiles + Subtle Architectural Up-lighting',
+        playback: 'Seamless Watchout / Novastar 4K Multi-Input Switching'
       },
-      tags: ['SEBI Compliant', 'Dual-Redundant Feed', 'Instant Scrutinizer Audit']
+      tags: ['Anti-Glare Matte', 'Speech Clarity Rigging', 'Multi-Cam Stream Ready']
     },
     launch: {
       id: 'launch',
-      tabLabel: '4K Experiential Product Unveil',
-      subtitle: 'Kinetic Hardware & Immersive Reveal',
-      headline: '3D Anamorphic LED Visuals With Hydraulic Vehicle Reveals',
-      description: 'Designed for high-impact commercial launches, tech hardware unveils, and experiential media demos. Uses timecode-synced laser projections and motorized kinetic drop screens.',
+      tabLabel: 'Product Unveils & Reveals',
+      subtitle: 'High-Impact Brand Experiential',
+      headline: 'Dramatic Anamorphic 3D LED Displays & Motorized Light Reveals',
+      description: 'Crafted for high-energy tech launches, commercial product reveals, and automobile unveils. Combines timecode-synced laser projections, kinetic moving heads, and synchronized unveil sequences.',
+      image: "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&w=1000&q=80",
       specs: {
-        ledWall: '120ft Curved P1.9 Anamorphic 3D Corner Display',
-        audio: 'L-Acoustics K2 360° Spatial Immersion Array',
-        broadcasting: 'Broadcast-Grade 4K HDR Camera Jibs & Steadicam Teams',
-        attendanceProtocol: 'VIP National Press & Key Tier-1 Distributors',
-        turnoutTarget: '1,500-3,500 High-Profile Executives & Media'
+        ledWall: 'High-Brightness P1.9 Anamorphic Corner & Flat Canvases',
+        audio: 'Dual Sub Bass + High-SPL Line Arrays for Punchy Audio',
+        lighting: 'DMX Motorized Beam/Spot Movers + High-Power Laser Mapping',
+        playback: 'Custom 4K Timecode Motion Video & Audio Sync Engine'
       },
-      tags: ['Anamorphic 3D', 'Timecode Lasers', 'Hydraulic Lift Stage']
+      tags: ['Anamorphic 3D', 'Timecoded Lasers', 'Dramatic Reveal Stage']
     },
-    roundtable: {
-      id: 'roundtable',
-      tabLabel: 'CXO Chatham House Roundtable',
-      subtitle: 'Confidential Executive Symposium',
-      headline: 'High-Security Acoustic Suites for Board & C-Suite Deliberation',
-      description: 'Custom built for intimate discussions between Managing Directors, CXOs, and policymakers. High-density acoustic panelling guarantees total confidentiality with seamless digital presentations.',
+    dealer: {
+      id: 'dealer',
+      tabLabel: 'Dealer Meets & Gala Awards',
+      subtitle: 'Large-Scale Conventions',
+      headline: 'Arena-Scale Stagecraft with Immersive Visuals & Concert Sound',
+      description: 'Turnkey stagecraft for annual dealer conventions, channel partner recognition ceremonies, and evening entertainment galas with multi-tier stages and synchronized spotlights.',
+      image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=1000&q=80",
       specs: {
-        ledWall: 'Custom 24ft Flush-Mount OLED Media Presentation Ribbon',
-        audio: 'Individually Gated Push-to-Talk Flush Table Microphones',
-        broadcasting: 'Private Local Network (Offline Air-Gapped Recording)',
-        attendanceProtocol: 'White-Glove Peer-to-Peer Calling & Personal Escort',
-        turnoutTarget: '30-80 C-Suite Decision Makers (100% RSVP Verified)'
+        ledWall: 'Multi-Tier Modular LED Backdrop with Walk-Through Portals',
+        audio: 'Concert-Grade Sound Reinforcement with Delay Towers',
+        lighting: 'GrandMA3 Programmed Moving Fixtures + Follow Spots',
+        playback: 'Live Award Nominee Graphics & Real-Time Winner Triggers'
       },
-      tags: ['Air-Gapped Privacy', 'White-Glove Service', 'Luxury Hospitality']
+      tags: ['Arena Scale', 'Gala Awards Rig', 'High-Capacity Audio']
     },
-    summit: {
-      id: 'summit',
-      tabLabel: 'Mega Dealer Summit & Gala (2,000+)',
-      subtitle: 'Mass Convention & Award Spectacle',
-      headline: 'Multi-Tier Kinetic Stagecraft With High-Volume Turnstiles',
-      description: 'Turnkey arena-scale management for annual dealer conventions, channel partner recognitions, and gala dinner concerts with coordinated light choreography.',
+    pavilion: {
+      id: 'pavilion',
+      tabLabel: 'Tech Pavilions & Expo Stalls',
+      subtitle: 'Spatial 3D Architecture',
+      headline: 'Modular Exhibition Stalls with Touch-Interactive Media Pods',
+      description: 'Designed for trade shows, industrial expos, and branded pop-up pavilions. Incorporates custom CNC wooden fabrication, LED video pillars, and interactive product demo stations.',
+      image: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1000&q=80",
       specs: {
-        ledWall: '3-Tier Modular LED Backdrops with Integrated Entry Portals',
-        audio: 'Dual Line Array Towers + Fill Arrays for 5,000+ Capacity',
-        broadcasting: '8-Cam Telecast + Real-Time Live Drone Stage Tracking',
-        attendanceProtocol: 'Flight Ticket Verification & RFID Badge Check-In',
-        turnoutTarget: '1,800-4,000 Regional Distributors & Channel Partners'
+        ledWall: 'Integrated Slim LED Video Strips & 65" 4K Interactive Touch Pods',
+        audio: 'Localized Directional Ceiling Sound Baffles',
+        lighting: 'Crisp 4000K Neutral Showroom Fixtures & Accent Neon Accents',
+        playback: 'Self-Service Touchscreen Interactive Product Brochures'
       },
-      tags: ['RFID Turnstiles', 'Multi-Tier Rigs', 'Mass Registration Engine']
+      tags: ['Modular Fabrication', 'Interactive Touch', 'Expo Ready']
     }
   };
 
-  const current = modes[activeMode];
+  const current = formats[activeTab];
 
   return (
-    <section id="simulator" className="py-20 sm:py-28 bg-[#063037] text-white relative overflow-hidden">
-      {/* Precision Grid lines */}
-      <div className="absolute inset-0 bg-grid-pattern-dark pointer-events-none opacity-40"></div>
-
+    <section id="planner" className="py-20 sm:py-28 bg-[#f2fcf9] relative overflow-hidden bg-dot-subtle">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+        
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 border-b border-white/10 pb-8">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 border-b border-[#356267]/10 pb-8">
           <div>
-            <div className="text-xs font-mono text-[#C45B2B] tracking-wider uppercase mb-2">
-              [ 03 // INTERACTIVE STAGE ARCHITECTURE ]
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#c2f2f2]/60 text-[#356267] text-xs font-mono font-semibold uppercase tracking-wider mb-2">
+              <Sliders className="w-3.5 h-3.5 text-[#356267]" />
+              <span>Interactive Production Planner</span>
             </div>
-            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-[#F7F4EA] tracking-tight">
-              Configured For Your Exact Corporate Format.
+            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold text-[#19383c] tracking-tight">
+              Configured For Your Event Format.
             </h2>
           </div>
-          <p className="text-sm text-white/70 max-w-md mt-4 md:mt-0 font-normal">
-            Every corporate event requires distinct acoustic calibration, display engineering, and security protocol. Switch modes below to inspect PixelGrid specifications.
+          <p className="text-sm text-[#41737c] max-w-md mt-4 md:mt-0 font-normal leading-relaxed">
+            Select an event type below to inspect recommended stage architecture, visual resolution, and audio calibration.
           </p>
         </div>
 
-        {/* Mode Selector Tabs (Mobile Responsive Scrollable) */}
+        {/* Tab Pills (Refero / SmoothUI Style) */}
         <div className="flex items-center gap-2 overflow-x-auto pb-4 mb-8 scrollbar-none">
-          {Object.values(modes).map((mode) => (
+          {Object.values(formats).map((item) => (
             <button
-              key={mode.id}
-              onClick={() => setActiveMode(mode.id)}
-              className={`px-4 sm:px-5 py-3 rounded-xl font-medium text-xs sm:text-sm whitespace-nowrap transition-all duration-200 border flex items-center gap-2 ${
-                activeMode === mode.id
-                  ? 'bg-[#C45B2B] text-white border-[#C45B2B] shadow-lg shadow-[#C45B2B]/20'
-                  : 'bg-white/5 text-white/70 border-white/10 hover:bg-white/10 hover:text-white'
+              key={item.id}
+              onClick={() => setActiveTab(item.id)}
+              className={`px-4 sm:px-5 py-2.5 rounded-full font-medium text-xs sm:text-sm whitespace-nowrap transition-all duration-200 border flex items-center gap-2 ${
+                activeTab === item.id
+                  ? 'bg-[#356267] text-white border-[#356267] shadow-sm'
+                  : 'bg-white/80 text-[#41737c] border-[#356267]/15 hover:bg-white hover:text-[#19383c]'
               }`}
             >
-              <span className="w-1.5 h-1.5 rounded-full bg-white opacity-80"></span>
-              <span>{mode.tabLabel}</span>
+              <span className={`w-1.5 h-1.5 rounded-full ${activeTab === item.id ? 'bg-[#c2f2f2]' : 'bg-[#356267]/40'}`}></span>
+              <span>{item.tabLabel}</span>
             </button>
           ))}
         </div>
 
         {/* Active Stage Blueprint Display */}
-        <div className="bg-[#031D21] rounded-2xl border border-white/10 p-6 sm:p-10 shadow-2xl">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
-            {/* Left Column: Stage Specs & Deliverables */}
-            <div className="lg:col-span-7 space-y-6">
-              <div className="flex items-center gap-2">
-                <span className="text-xs font-mono px-2.5 py-1 rounded bg-[#C45B2B]/20 text-[#C45B2B] font-semibold border border-[#C45B2B]/30">
+        <div className="bg-white rounded-3xl border border-[#356267]/10 p-6 sm:p-10 shadow-[0_8px_30px_rgba(53,98,103,0.06)]">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            
+            {/* Left Column: Image Card */}
+            <div className="lg:col-span-5 relative rounded-2xl overflow-hidden bg-slate-900 h-72 sm:h-96 shadow-md border border-[#356267]/10 group">
+              <img
+                src={current.image}
+                alt={current.headline}
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+              
+              <div className="absolute top-4 left-4">
+                <span className="px-3 py-1 rounded-full bg-white/90 backdrop-blur-md text-[#19383c] text-xs font-mono font-semibold shadow-xs">
                   {current.subtitle}
-                </span>
-                <span className="text-xs font-mono text-white/40">
-                  REF // PG-ARC-{current.id.toUpperCase()}
                 </span>
               </div>
 
-              <h3 className="text-xl sm:text-3xl font-bold text-white leading-snug">
-                {current.headline}
-              </h3>
+              <div className="absolute bottom-4 left-4 right-4 text-white text-xs font-mono bg-black/40 backdrop-blur-xs p-2.5 rounded-xl border border-white/20">
+                <span>FORMAT // </span>
+                <span className="text-[#c2f2f2] font-semibold">{current.tabLabel}</span>
+              </div>
+            </div>
 
-              <p className="text-sm sm:text-base text-white/80 leading-relaxed">
-                {current.description}
-              </p>
+            {/* Right Column: Technical Specifications */}
+            <div className="lg:col-span-7 space-y-6">
+              <div>
+                <span className="text-xs font-mono px-3 py-1 rounded-full bg-[#effefb] text-[#356267] font-semibold border border-[#356267]/10 inline-block mb-3">
+                  {current.subtitle}
+                </span>
+                <h3 className="text-xl sm:text-3xl font-bold text-[#19383c] leading-snug">
+                  {current.headline}
+                </h3>
+                <p className="text-xs sm:text-sm text-[#41737c] mt-2 leading-relaxed">
+                  {current.description}
+                </p>
+              </div>
 
               {/* Technical Specifications Matrix */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-                <div className="bg-white/5 p-4 rounded-xl border border-white/10 space-y-1">
-                  <div className="flex items-center gap-2 text-xs font-mono text-white/50">
-                    <Monitor className="w-3.5 h-3.5 text-[#C45B2B]" />
-                    <span>LED & VISUAL CANVASES</span>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-1">
+                <div className="bg-[#effefb] p-3.5 rounded-2xl border border-[#356267]/10 space-y-1">
+                  <div className="flex items-center gap-1.5 text-[11px] font-mono text-[#356267] font-semibold">
+                    <Monitor className="w-3.5 h-3.5" />
+                    <span>LED DISPLAY RIG</span>
                   </div>
-                  <div className="text-xs sm:text-sm font-semibold text-white">
+                  <div className="text-xs font-semibold text-[#19383c]">
                     {current.specs.ledWall}
                   </div>
                 </div>
 
-                <div className="bg-white/5 p-4 rounded-xl border border-white/10 space-y-1">
-                  <div className="flex items-center gap-2 text-xs font-mono text-white/50">
-                    <Volume2 className="w-3.5 h-3.5 text-[#C45B2B]" />
-                    <span>ACOUSTIC CLARITY SYSTEM</span>
+                <div className="bg-[#effefb] p-3.5 rounded-2xl border border-[#356267]/10 space-y-1">
+                  <div className="flex items-center gap-1.5 text-[11px] font-mono text-[#356267] font-semibold">
+                    <Volume2 className="w-3.5 h-3.5" />
+                    <span>AUDIO REINFORCEMENT</span>
                   </div>
-                  <div className="text-xs sm:text-sm font-semibold text-white">
+                  <div className="text-xs font-semibold text-[#19383c]">
                     {current.specs.audio}
                   </div>
                 </div>
 
-                <div className="bg-white/5 p-4 rounded-xl border border-white/10 space-y-1">
-                  <div className="flex items-center gap-2 text-xs font-mono text-white/50">
-                    <ShieldCheck className="w-3.5 h-3.5 text-[#C45B2B]" />
-                    <span>BROADCAST & UPLINK</span>
+                <div className="bg-[#effefb] p-3.5 rounded-2xl border border-[#356267]/10 space-y-1">
+                  <div className="flex items-center gap-1.5 text-[11px] font-mono text-[#356267] font-semibold">
+                    <Layers className="w-3.5 h-3.5" />
+                    <span>LIGHTING ARCHITECTURE</span>
                   </div>
-                  <div className="text-xs sm:text-sm font-semibold text-white">
-                    {current.specs.broadcasting}
-                  </div>
-                </div>
-
-                <div className="bg-white/5 p-4 rounded-xl border border-white/10 space-y-1">
-                  <div className="flex items-center gap-2 text-xs font-mono text-white/50">
-                    <Users className="w-3.5 h-3.5 text-[#C45B2B]" />
-                    <span>TURNKEY AUDIENCE TARGET</span>
-                  </div>
-                  <div className="text-xs sm:text-sm font-semibold text-[#C45B2B]">
-                    {current.specs.turnoutTarget}
-                  </div>
-                </div>
-              </div>
-
-              {/* Tags */}
-              <div className="flex flex-wrap gap-2 pt-2">
-                {current.tags.map((tag, idx) => (
-                  <span
-                    key={idx}
-                    className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-white/5 text-white/80 text-xs font-mono border border-white/10"
-                  >
-                    <Check className="w-3 h-3 text-[#C45B2B]" />
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            </div>
-
-            {/* Right Column: Execution Metric Card */}
-            <div className="lg:col-span-5 flex flex-col justify-between bg-[#063037] p-6 sm:p-7 rounded-xl border border-white/15 relative">
-              <div className="space-y-5">
-                <div className="flex items-center justify-between border-b border-white/10 pb-3">
-                  <span className="text-xs font-mono text-white/60">DEPLOYMENT METRICS</span>
-                  <span className="text-xs font-mono text-green-400 flex items-center gap-1">
-                    <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse"></span>
-                    READY FOR DEPLOYMENT
-                  </span>
-                </div>
-
-                <div className="space-y-4">
-                  <div>
-                    <div className="flex justify-between text-xs font-mono mb-1">
-                      <span className="text-white/60">Stage Rigging & Truss Load-In</span>
-                      <span className="text-[#C45B2B]">Under 8 Hours</span>
-                    </div>
-                    <div className="w-full bg-white/10 h-1.5 rounded-full overflow-hidden">
-                      <div className="bg-[#C45B2B] h-full w-4/5 rounded-full"></div>
-                    </div>
-                  </div>
-
-                  <div>
-                    <div className="flex justify-between text-xs font-mono mb-1">
-                      <span className="text-white/60">B2B Tele-RSVP Calling Lead Time</span>
-                      <span className="text-white">14 to 21 Days</span>
-                    </div>
-                    <div className="w-full bg-white/10 h-1.5 rounded-full overflow-hidden">
-                      <div className="bg-white/60 h-full w-3/4 rounded-full"></div>
-                    </div>
-                  </div>
-
-                  <div>
-                    <div className="flex justify-between text-xs font-mono mb-1">
-                      <span className="text-white/60">Backup Power & Uplink Redundancy</span>
-                      <span className="text-green-400">100% Dual-Grid</span>
-                    </div>
-                    <div className="w-full bg-white/10 h-1.5 rounded-full overflow-hidden">
-                      <div className="bg-green-400 h-full w-full rounded-full"></div>
-                    </div>
+                  <div className="text-xs font-semibold text-[#19383c]">
+                    {current.specs.lighting}
                   </div>
                 </div>
 
-                {/* Callout Box */}
-                <div className="bg-white/5 p-4 rounded-lg border border-white/10 text-xs text-white/80 leading-relaxed font-sans">
-                  <strong className="text-white block mb-1">PixelGrid Guarantee:</strong>
-                  If stage hardware or audio suffers a dropout during live session, our contractual SLA carries a 100% technical credit. Zero corporate failure tolerated.
+                <div className="bg-[#effefb] p-3.5 rounded-2xl border border-[#356267]/10 space-y-1">
+                  <div className="flex items-center gap-1.5 text-[11px] font-mono text-[#356267] font-semibold">
+                    <Video className="w-3.5 h-3.5" />
+                    <span>MEDIA SWITCHING</span>
+                  </div>
+                  <div className="text-xs font-semibold text-[#19383c]">
+                    {current.specs.playback}
+                  </div>
                 </div>
               </div>
 
-              {/* Action Button */}
-              <div className="pt-6 mt-6 border-t border-white/10">
+              {/* Tags & Action */}
+              <div className="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-[#356267]/10">
+                <div className="flex flex-wrap gap-2">
+                  {current.tags.map((tag, idx) => (
+                    <span
+                      key={idx}
+                      className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-[#f2fcf9] text-[#19383c] text-xs font-mono border border-[#356267]/10"
+                    >
+                      <Check className="w-3 h-3 text-[#356267]" />
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+
                 <button
                   onClick={onOpenEstimator}
-                  className="w-full py-3.5 bg-[#C45B2B] hover:bg-[#B24E21] text-white font-semibold text-sm rounded-xl transition-all shadow-md flex items-center justify-center gap-2 group"
+                  className="px-5 py-2.5 rounded-full bg-[#356267] hover:bg-[#19383c] text-white text-xs font-semibold flex items-center gap-2 transition-all shadow-sm"
                 >
                   <span>Build RFP For This Format</span>
-                  <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                  <ArrowRight className="w-3.5 h-3.5 text-[#c2f2f2]" />
                 </button>
               </div>
             </div>
+
           </div>
         </div>
       </div>

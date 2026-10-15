@@ -18,52 +18,52 @@ export default function App() {
   const closeEstimator = () => setIsEstimatorOpen(false);
 
   return (
-    <div className="min-h-screen bg-[#F7F4EA] text-[#063037] flex flex-col selection:bg-[#C45B2B] selection:text-white">
-      {/* Navigation */}
+    <div className="min-h-screen bg-[#effefb] text-[#19383c] flex flex-col selection:bg-[#356267] selection:text-white">
+      {/* Floating Pill Navigation */}
       <Navbar onOpenEstimator={openEstimator} />
 
       {/* Main Page Flow */}
       <main className="flex-grow">
-        {/* Hero Section */}
+        {/* Subtle, Breathable Hero Section */}
         <Hero onOpenEstimator={openEstimator} />
 
-        {/* Capabilities [ 01 ] to [ 05 ] */}
+        {/* Capabilities Bento Grid [ 01 ] to [ 05 ] */}
         <Capabilities onOpenEstimator={openEstimator} />
 
-        {/* Turnout & Telemarketing Engine */}
+        {/* 4-Step Production Pipeline & Fresh Agency Advantage */}
         <TurnoutEngine onOpenEstimator={openEstimator} />
 
-        {/* Interactive Stage Architecture Simulator */}
+        {/* Interactive Production Planner */}
         <InteractiveStage onOpenEstimator={openEstimator} />
 
-        {/* Enterprise Case Studies */}
+        {/* Event Environments & Formats Gallery */}
         <CaseStudies onOpenEstimator={openEstimator} />
 
-        {/* Regional Hubs & Liaison Command */}
+        {/* Operational Hubs & Direct Coordination */}
         <RegionalHubs onOpenEstimator={openEstimator} />
       </main>
 
-      {/* Corporate Footer */}
+      {/* Minimal Breathable Footer */}
       <Footer onOpenEstimator={openEstimator} />
 
-      {/* Interactive RFP Brief Estimator Modal */}
+      {/* Compact Event Brief Modal */}
       <EventEstimatorModal isOpen={isEstimatorOpen} onClose={closeEstimator} />
 
-      {/* Mobile Sticky Quick Action Ribbon (Always accessible on phones) */}
-      <aside aria-label="Quick actions" className="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-[#063037]/95 backdrop-blur-md border-t border-white/10 p-3 flex items-center justify-between gap-2 shadow-2xl">
+      {/* Mobile Sticky Quick Action Ribbon */}
+      <aside aria-label="Quick actions" className="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-[#19383c]/95 backdrop-blur-md border-t border-white/10 p-3 flex items-center justify-between gap-2 shadow-2xl">
         <a
           href={`tel:${brandConfig.contacts.primaryPhone}`}
-          className="flex-1 py-2.5 px-2 bg-white/10 text-white rounded-lg text-xs font-semibold flex items-center justify-center gap-1.5 active:bg-white/20"
+          className="flex-1 py-2.5 px-2 bg-white/10 text-white rounded-full text-xs font-semibold flex items-center justify-center gap-1.5 active:bg-white/20"
         >
-          <Phone className="w-3.5 h-3.5 text-[#C45B2B]" />
-          <span>Call HQ</span>
+          <Phone className="w-3.5 h-3.5 text-[#c2f2f2]" />
+          <span>Call Studio</span>
         </a>
 
         <a
-          href={`https://wa.me/${brandConfig.contacts.whatsapp.replace('+', '')}?text=Hello%20PixelGrid,%20we%20want%20to%20discuss%20a%20corporate%20event.`}
+          href={`https://wa.me/${brandConfig.contacts.whatsapp.replace('+', '')}?text=Hello%20PixelGrid%20Media%20Tech,%20we%20want%20to%20discuss%20an%20event.`}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex-1 py-2.5 px-2 bg-[#25D366]/20 text-[#25D366] rounded-lg text-xs font-semibold flex items-center justify-center gap-1.5 active:bg-[#25D366]/30 border border-[#25D366]/30"
+          className="flex-1 py-2.5 px-2 bg-[#25D366]/20 text-[#25D366] rounded-full text-xs font-semibold flex items-center justify-center gap-1.5 active:bg-[#25D366]/30 border border-[#25D366]/30"
         >
           <MessageSquare className="w-3.5 h-3.5" />
           <span>WhatsApp</span>
@@ -71,10 +71,10 @@ export default function App() {
 
         <button
           onClick={openEstimator}
-          className="flex-1 py-2.5 px-2 bg-[#C45B2B] text-white rounded-lg text-xs font-bold flex items-center justify-center gap-1 shadow-md active:bg-[#B24E21]"
+          className="flex-1 py-2.5 px-2 bg-[#356267] text-white rounded-full text-xs font-bold flex items-center justify-center gap-1 shadow-md active:bg-[#19383c] border border-white/10"
         >
-          <span>Scope RFP</span>
-          <ArrowUpRight className="w-3.5 h-3.5" />
+          <span>Plan Brief</span>
+          <ArrowUpRight className="w-3.5 h-3.5 text-[#c2f2f2]" />
         </button>
       </aside>
     </div>
