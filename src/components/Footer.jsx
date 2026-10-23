@@ -38,23 +38,19 @@ export default function Footer({ onOpenEstimator }) {
             </div>
           </div>
 
-          {/* Quick Hub Addresses */}
+          {/* Studio Headquarters */}
           <div className="md:col-span-4 space-y-3 text-xs text-white/80">
             <div className="font-mono text-xs uppercase tracking-wider text-[#c2f2f2] font-semibold">
-              Operational Presence
+              Production Studio HQ
             </div>
-            <div className="space-y-2">
+            <div className="space-y-2.5">
               <div>
-                <strong className="text-white block">Ahmedabad Production Studio:</strong>
-                <span className="text-white/60">{brandConfig.contacts.hqAddress}</span>
+                <strong className="text-white block font-medium">Ahmedabad Creative & Production Studio:</strong>
+                <span className="text-white/65 leading-relaxed block">{brandConfig.contacts.hqAddress}</span>
               </div>
-              <div>
-                <strong className="text-white block">Pune Liaison Desk:</strong>
-                <span className="text-white/60">{brandConfig.contacts.puneAddress}</span>
-              </div>
-              <div>
-                <strong className="text-white block">Delhi-NCR Coordination:</strong>
-                <span className="text-white/60">{brandConfig.contacts.delhiAddress}</span>
+              <div className="pt-2 text-white/60 text-[11px] leading-relaxed border-t border-white/10">
+                <span className="text-[#c2f2f2] font-mono font-semibold block mb-0.5">DIRECT STAGING MOBILIZATION</span>
+                Turnkey AV execution across Ahmedabad, Gandhinagar, Vadodara, Surat, and Western India.
               </div>
             </div>
           </div>

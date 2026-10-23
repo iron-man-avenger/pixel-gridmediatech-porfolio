@@ -19,7 +19,7 @@ export default function Navbar({ onOpenEstimator }) {
     { name: "Production Flow", href: "#workflow" },
     { name: "Formats", href: "#formats" },
     { name: "Planner", href: "#planner" },
-    { name: "Hubs", href: "#hubs" },
+    { name: "Studio", href: "#studio" },
   ];
 
   return (

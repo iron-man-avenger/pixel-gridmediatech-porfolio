@@ -10,7 +10,7 @@ export const brandConfig = {
     { label: "Technical Directorship", value: "100%", subtext: "In-house AV & stage execution" },
     { label: "LED Screen Precision", value: "P1.9 – P2.6", subtext: "Ultra-fine high-refresh panels" },
     { label: "Production Model", value: "Direct Gear", subtext: "Zero middleman markups" },
-    { label: "Hub Mobilization", value: "Pan-India", subtext: "Ahmedabad • Pune • Delhi-NCR" }
+    { label: "Production Studio", value: "Ahmedabad", subtext: "Prahlad Nagar Corporate Studio" }
   ],
 
   contacts: {
@@ -19,9 +19,7 @@ export const brandConfig = {
     email: "hello@pixelgridmediatech.com",
     rfpEmail: "proposals@pixelgridmediatech.com",
     whatsapp: "+919825084721",
-    hqAddress: "PixelGrid Studio, Corporate Road, Prahlad Nagar, Ahmedabad, Gujarat 380015",
-    puneAddress: "World Trade Center, Tower 2, Kharadi, Pune, Maharashtra 411014",
-    delhiAddress: "Aerocity Hospitality District, Worldmark, New Delhi 110037"
+    hqAddress: "PixelGrid Studio, Corporate Road, Prahlad Nagar, Ahmedabad, Gujarat 380015"
   }
 };
 
@@ -127,26 +125,19 @@ export const eventFormats = [
   }
 ];
 
-export const hubs = [
-  {
-    city: "Ahmedabad",
-    role: "Central Production & Creative Studio",
-    details: "Core technical team, 3D pre-viz studio, and staging equipment directorship.",
-    location: "Prahlad Nagar, Corporate Road, Ahmedabad",
-    phone: "+91 98250 84721"
-  },
-  {
-    city: "Pune",
-    role: "Western Regional Coordination",
-    details: "Dedicated client liaison desk for Mumbai, Pune, and industrial belts.",
-    location: "World Trade Center, Kharadi, Pune",
-    phone: "+91 94260 19384"
-  },
-  {
-    city: "Delhi-NCR",
-    role: "Northern Liaison Desk",
-    details: "Regional point of contact for summits, expos, and national conclaves.",
-    location: "Aerocity Hospitality District, New Delhi",
-    phone: "+91 98250 84721"
-  }
-];
+export const studioInfo = {
+  city: "Ahmedabad",
+  state: "Gujarat",
+  pincode: "380015",
+  role: "Central Production & Creative Studio",
+  details: "Home to our core technical staging directorship, 3D pre-viz design suite, and direct in-house LED and audio inventory.",
+  location: "PixelGrid Studio, Corporate Road, Prahlad Nagar, Ahmedabad, Gujarat 380015",
+  landmark: "Prahlad Nagar Corporate Road",
+  primaryPhone: "+91 98250 84721",
+  secondaryPhone: "+91 94260 19384",
+  email: "hello@pixelgridmediatech.com",
+  timing: "Mon – Sat: 9:30 AM – 7:30 PM IST",
+  mobilization: "Direct staging mobilization across Ahmedabad, Gandhinagar, Vadodara, Surat, and across India on project basis."
+};
+
+export const hubs = [ studioInfo ];

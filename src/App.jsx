@@ -39,7 +39,7 @@ export default function App() {
         {/* Event Environments & Formats Gallery */}
         <CaseStudies onOpenEstimator={openEstimator} />
 
-        {/* Operational Hubs & Direct Coordination */}
+        {/* Creative Studio & Production HQ */}
         <RegionalHubs onOpenEstimator={openEstimator} />
       </main>
 

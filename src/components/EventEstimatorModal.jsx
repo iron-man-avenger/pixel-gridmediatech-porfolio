@@ -305,12 +305,14 @@ export default function EventEstimatorModal({ isOpen, onClose }) {
                         onChange={handleInputChange}
                         className="w-full px-3 py-2 rounded-xl border border-[#356267]/20 bg-white text-xs text-[#19383c] focus:outline-none focus:border-[#356267]"
                       >
-                        <option value="Ahmedabad">Ahmedabad Hub</option>
-                        <option value="Pune">Pune Hub</option>
-                        <option value="Delhi-NCR">Delhi-NCR Hub</option>
+                        <option value="Ahmedabad">Ahmedabad (Studio HQ)</option>
+                        <option value="Gandhinagar">Gandhinagar</option>
+                        <option value="Vadodara">Vadodara</option>
+                        <option value="Surat">Surat</option>
                         <option value="Mumbai">Mumbai</option>
+                        <option value="Pune">Pune</option>
+                        <option value="Delhi-NCR">Delhi-NCR</option>
                         <option value="Bengaluru">Bengaluru</option>
-                        <option value="Hyderabad">Hyderabad</option>
                         <option value="Other">Other City</option>
                       </select>
                     </div>

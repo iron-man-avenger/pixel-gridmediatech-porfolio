@@ -113,7 +113,7 @@ export default function TurnoutEngine({ onOpenEstimator }) {
 
           <div className="mt-8 pt-6 border-t border-[#356267]/10 flex flex-col sm:flex-row items-center justify-between gap-4">
             <div className="text-xs text-[#41737c] font-mono">
-              DIRECT MOBILIZATION // AHMEDABAD • PUNE • DELHI-NCR
+              DIRECT GEAR MOBILIZATION // AHMEDABAD STUDIO HQ
             </div>
             <button
               onClick={onOpenEstimator}
